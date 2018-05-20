@@ -1,0 +1,12 @@
+.inline span{
+	font-weight: bold;
+}
+.inline p{
+	display: block;
+	float: left;
+	margin-right: 30px;
+}
+.clearfix{
+	display: block;
+	clear: both;
+}

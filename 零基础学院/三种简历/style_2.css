@@ -1,0 +1,25 @@
+.head{
+	float: left;
+	width: 200px;
+	background-color: #4286f4;
+	color: #fff;
+	margin-right: 30px;
+	text-align: center;
+	margin-bottom:-3000px; 
+	padding-bottom:3000px;
+	overflow: hidden;
+}
+.content{
+	float: left;
+}
+.inline p{
+	display: block;
+	float: left;
+	margin-right: 30px;
+}
+.clearfix{
+	clear: both;
+}
+.inline span{
+	font-weight: bold;
+}
