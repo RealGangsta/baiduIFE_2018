@@ -1,0 +1,20 @@
+*{
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -webkit-box-sizing:border-box; 
+}
+.container-2{
+	height: 200px;
+	overflow: hidden;
+}
+.left2{
+	height: 200px;
+	background-color: yellow;
+	width: 30%;
+	float: left;
+}
+.right2{
+	height: 200px;
+	background-color: green;
+	width: 100%;
+}

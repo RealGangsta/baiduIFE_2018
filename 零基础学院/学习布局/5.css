@@ -1,0 +1,26 @@
+*{
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -webkit-box-sizing:border-box; 
+}
+body{
+	min-width: 700px;
+}
+.container-3{
+	display: flex;
+}
+.middle{
+	background: yellow;
+	height: 200px;
+	width: 200px;
+}
+.left3{
+	background: orange;
+	height: 200px;
+	width: 200px;
+}
+.right3{
+	background: green;
+	height: 200px;
+	flex: 1;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>layout</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+	<div class="change-css">
+		<button>30% left, 70% right</button>
+		<button>left fixed, right self-adjust</button>
+		<button>right fixed, left self-adjust</button>
+		<button>left & right fixed, middle self-adjust</button>
+		<button>left & middle fixed, right self-adjust</button>
+	</div>
+	<div class="container-2">
+		<div class="left2"></div>
+		<div class="right2"></div>
+	</div>
+	<div class="container-3">
+		<div class="middle"></div>
+		<div class="left3"></div>
+		<div class="right3"></div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+			var arr = document.getElementsByTagName('button');
+			var style = document.getElementsByTagName('link')[0];
+			for(var i=0; i<arr.length; i++){
+				let j = i+1;
+				arr[i].onclick = function(){
+					style.setAttribute('href',j+'.css');
+				}
+			}
+		}
+	</script>
+</body>
+</html>

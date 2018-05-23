@@ -1,0 +1,24 @@
+*{
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -webkit-box-sizing:border-box; 
+}
+.container-2{
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}
+.left2{
+	height: 200px;
+	background-color: yellow;
+	position: absolute;
+	left: 0;
+	width: 200px;
+}
+.right2{
+	height: 200px;
+	background-color: green;
+	float: left;
+	margin-left: 200px;
+	width: 100%;
+}
