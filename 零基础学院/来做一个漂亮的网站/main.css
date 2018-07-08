@@ -1,0 +1,409 @@
+*{
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -webkit-box-sizing:border-box; 
+}
+body{
+	padding: 0;
+	margin: 0;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+	*zoom: 1;
+}
+.wrap{
+	margin: 0 auto;
+	width: 1170px;
+	width: 100%;
+	height: 990px;
+}
+
+.header{
+	background: url(images/ife_01.png) no-repeat;
+	height: 990px;
+}
+.header-dc{
+	text-align: center;
+	margin: 0 auto;
+	width: 770px;
+	color: #ddd;
+	font-size: 20px;
+	line-height: 32px;
+	padding-top: 209px;
+}
+.header-dc h1{
+	color: #fff;
+	font-size: 62px;
+	line-height: 72px;
+	font-weight: normal;
+}
+.account{
+	text-align: center;
+	color: #ddd;
+	height: 250px;
+	width: 970px;
+	border: 1px solid grey;
+	margin: 0 auto;
+	margin-top: 104px;
+	bottom: 210px;
+}
+.account h4{
+	margin-top: 62px;
+	margin-bottom: 0;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: lighter;
+	color: #fff;
+	letter-spacing: 2.4px;
+}
+.account-dc p{
+	font-size: 12px;
+	color: #ddd;
+	line-height: 28px;
+	letter-spacing: 1.8px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.account-in{
+	margin-top: 38px;
+}
+.account-in input{
+	width: 292px;
+	height: 50px;
+	background: transparent;
+	border: 1px solid grey;
+	border-radius: 2px;
+	padding-left: 22px;
+	color: #fff;
+}
+.account-in input:first-child{
+	margin-right: 30px;
+}
+.account-in button{
+	margin-left: 30px;
+	height: 50px;
+	width: 125px;
+	background-color: #fff;
+	border-radius: 2px;
+	outline: none;
+	border: 1px #fff;
+	line-height: 28px;
+	letter-spacing: 2px;
+}
+
+
+.feature9{
+	height: 710px;
+}
+.fea9-title{
+	margin: 80px auto;
+	text-align: center;
+	font-size: 14px;
+	line-height: 26px;
+}
+.fea9-title h2{
+	font-size: 42px;
+	line-height: 52px;
+	font-weight: lighter;
+}
+.fea9-block{
+	margin: 80px auto;
+	margin-bottom: 0;
+	width: 1170px;
+}
+.fea9-blc{
+	width: 430px;
+	float: left;
+	margin: 0 70px 80px 70px;
+}
+.fea9-blc .blc-img{
+	float: left;
+	margin-right: 30px;
+	height: 85px;
+}
+.fea9-blc .blc-dc{
+}
+.fea9-blc .blc-dc h4{
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+
+.call2act{
+	margin-top: -80px;
+	background: url(images/ife_17.png) no-repeat;
+	height: 800px;
+	position: relative;
+}
+.call2act-content{
+	float: left;
+	margin: 184px 135px 184px 310px;
+	width: 510px;
+	height: 432px;
+	color: #fff;
+}
+.call2act-tt{
+	width: 370px;
+}
+.call2act-tt h2{
+	font-size: 38px;
+	font-weight: lighter;
+	line-height: 50px;
+}
+.call2act-dc{
+	width: 370px;
+	font-size: 16px;
+	line-height: 26px;
+	color: #ddd;
+	margin-bottom: 58px;
+}
+.call2act-btn{
+	width: 520px;
+}
+.call2act-btn button{
+	color: #fff;
+	height: 60px;
+	width: 240px;
+	background: transparent;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	outline: none;
+	display: inline-block;
+}
+.call2act-btn button:first-child{
+	margin-right: 30px;
+}
+.call2act-btn button:hover{
+	background-color: #fff;
+	color: #000;
+}
+.call2act-pad{
+	position: absolute;
+	top: 104px;
+	right: 0;
+}
+
+
+.feature19{
+	padding: 100px 280px 80px 280px;
+	border-bottom: 1px solid grey;
+	height: 580px;
+	width: 100%;
+}
+.feature19 h2{
+	font-size: 38px;
+	text-align: center;
+	font-weight: lighter;
+	margin-bottom: 80px;
+	margin-top: 0;
+}
+.fea19-blc{
+	height: 272px;
+	width: 220px;
+	text-align: center;
+	float: left;
+	margin-right: 43px;
+}
+
+
+.feature14{
+	margin-top: 114px;
+	border-bottom: 1px solid grey;
+	height: 900px;
+}
+.feature14 .wrap{
+	margin: 0 auto;
+	width: 1030px;
+}
+.fea14-blc{
+	margin-bottom: 80px;
+	color: #bbb;
+}
+.fea14-blc img{
+	float: left;
+	margin-left: 30px;
+}
+.fea14-blc .blc-dc{
+	float: left;
+	width: 330px;
+	margin-left: 100px;
+	margin-top: 78px;
+	padding-right: 10px;
+}
+.fea14-blc .blc-dc h5{
+	font-size: 16px;
+	color: #000;
+}
+
+
+.team{
+	height: 1084px;
+	border-bottom: 1px solid grey;
+}
+.team .wrap{
+	margin: 90px auto;
+}
+.team-header{
+	text-align: center;
+}
+.team-header h2{
+	font-weight: lighter;
+	font-size: 38px;
+}
+.team-header p{
+	color: #bbb;
+}
+.team-crew{
+	width: 100%;
+}
+.ti1, .ti2{
+	display: flex;
+	margin: 0 auto;
+	width: 1060px;
+}
+.team-img{
+	justify-content: space-between;
+	margin: 30px;
+	position: relative;
+	text-align: center;
+	background-color: #777;
+	width: 470px;
+	height: 340px;
+}
+.team-img-hv{
+	position: absolute;
+	top: 110px;
+	left: 122px;
+	color: #fff;
+	font-size: 12px;
+	display: none;
+}
+.team-dc h5{
+	font-size: 16px;
+}
+.team-ct-img{
+	float: left;
+	margin-right: 30px;
+}
+.team-ct-img img{
+	cursor: pointer;
+}
+.team-img img:hover{
+	opacity: 0.5;
+}
+.team-img-hv:hover{
+	display: block;
+}
+
+
+.contact{
+	height: 700px;
+}
+.contact .wrap{
+	width: 1030px;
+	margin: 60px auto;
+}
+.contact-sm{
+	float: left;
+	margin-left: 30px;
+	margin-right: 100px;
+	width: 470px;
+	height: 560px;
+	border: 1px solid #888;
+	border-radius: 3px;
+	text-align: center;
+}
+.contact-sm h5{
+	font-size: 24px;
+	font-weight: lighter;
+	margin-bottom: 0;
+}
+.contact-sm input{
+	height: 50px;
+	width: 370px;
+	margin: 20px 50px;
+	background: transparent;
+	border: 1px solid grey;
+	border-radius: 2px;
+	padding-left: 10px;
+}
+.contact-sm textarea{
+	width: 370px;
+	height: 144px;
+	padding: 10px;
+	margin: 10px 50px;
+}
+.contact-sm button{
+	width: 370px;
+	height: 50px;
+	margin: 10px 50px;
+	font-weight: bold;
+	background-color: #141414;
+	color: #fff;
+	letter-spacing: 2.4px;
+	border: 1px solid #141414;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.contact-msg{
+	padding: 30px;
+}
+.contact-msg-dc{
+	color: #777;
+	margin-bottom: 50px;
+}
+.contact-msg-dc h2{
+	font-size: 32px;
+	color: #000;
+	font-weight: lighter;
+}
+.contact-way-dt{
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+#ct-wy-2l{
+	height: 60px;
+}
+.contact-way-dt-img{
+	float: left;
+	margin-right: 15px;
+}
+
+
+footer{
+	background-color: #141414;
+	color: #777;
+}
+footer .wrap{
+	margin: 0 auto;
+	width: 1170px;
+	height: 410px;
+	position: relative;
+}
+.link-cols{
+	float: left;
+	margin-right: 100px;
+	margin-top: 88px;
+}
+.link-cols h5, .footer-dc h5{
+	color: #fff;
+	font-size: 20px;
+	font-weight: lighter;
+	letter-spacing: 2.4px;
+}
+.link-cols a{
+	text-decoration: none;
+	color: #bbb;
+}
+.footer-dc{
+	width: 326px;
+	position: absolute;
+	top: 88px;
+	right: 0;
+}
+.footer-dc-icon img{
+	margin-right: 20px;
+	cursor: pointer;
+}
