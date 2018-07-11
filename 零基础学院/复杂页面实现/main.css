@@ -1,0 +1,393 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+}
+body{
+	display: flex;
+	flex-flow: row;
+	margin: 0;
+	//height: 100%;
+}
+img[alt = 'active']{
+	position: absolute;
+	left: 0;
+}
+.clearfix:after{
+    content:".";        
+    display:block;        
+    height:0;        
+    clear:both;    
+    *zoom: 1;         
+}
+.Menu, .IconBar, .Chat{
+	position: relative;
+}
+
+
+
+.Menu{
+	width: 250px;
+	background-color: #222c3c;
+	color: #b7c0cd;
+	padding: 6px 30px;
+}
+.Menu .wrap{
+	width: 190px;
+}
+.menu-blc{
+	margin: 24px 0 0 0;
+}
+.blc-title{
+	color: #4e5a6b;
+	position: relative;
+}
+.blc-title img{
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+.blc-links{
+	color: #b6c0cd;
+	padding: 24px 0;
+}
+.blc-links ul{
+	list-style: none;
+	padding-left: 0;
+}
+.blc-links li{
+	line-height: 36px;
+	font-size: 14px;
+}
+.blc-links li a{
+	text-decoration: none;
+	color: #b6c0cd;
+}
+.blc-links li.active{
+	position: relative;
+}
+.blc-links li.active img{
+	position: absolute;
+	right: 0;
+	top: 4px;
+}
+.blc-links li.active span{
+	position: absolute;
+	right: 8px;
+	bottom: 2px;
+	color: #fff;
+	font-weight: bold;
+}
+.menu-line{
+	height: 0.5px;
+	border: 0.5px solid #4e5a6b;
+}
+.menu-btm{
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+}
+.menu-btm-dc p{
+	display: inline-block;
+	font-size: 14px;
+}
+.menu-btm-dc p:last-child{
+	position: absolute;
+	line-height: 26px;
+	right: 0;
+}
+
+
+
+.IconBar{
+	background-color: #1d2531;
+	width: 10%;
+	padding: 10px 0;
+}
+.iconbar-icons{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 80px;
+}
+.iconbar-icon{
+	padding: 10px 15px 10px 15px;
+}
+.iconbar-icons img:first-child{
+	top: 38px;
+}
+.iconbar-btm{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-right: 30px;
+}
+.iconbar-btm img{
+	margin-left: 10px;
+}
+
+
+
+.Chat{
+	color: #585d68;
+	font-size: 14px;
+	width: 100%;
+}
+.chat-line{
+	height: 0.5px;
+	border: 0.5px solid #e6e9ec;
+}
+.chat-head{
+	position: relative;
+	height: 80px;
+}
+.chat-head-tt{
+	padding-left: 32px;
+}
+.chat-head-tt h2{
+	font-size: 24px;
+	font-weight: lighter;
+	line-height: 80px;
+}
+.chat-head-info{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.chat-head-info a{
+	position: absolute;
+	right: 30px;
+	top: 38px;
+	height: 7px;
+	width: 11px;
+	background: url(images/12_15_05.png);
+}
+.chat-info-dc{
+	position: absolute;
+	right: 80px;
+	top: 24px;
+	color: b5b5b5;
+}
+.chat-info-dc span{
+	color: #2399f1;
+	font-size: 16px;
+}
+.chat-head-info img{
+	position: absolute;
+	right: 182px;
+	top: 14px;
+}
+.chat-main{
+	display: flex;
+	flex-grow: row;
+}
+.chat-main-lt{
+	padding: 16px 20px 0 30px;
+	width: 400px;
+	border-right: 0.5px solid #e6e9ec;
+}
+.chat-main-lt .chat-line{
+	width: 400px;
+	margin-left: -30px;
+}
+.main-search{
+	margin: 0 auto 16px;
+	position: relative;
+}
+.main-search input{
+	width: 340px;
+	height: 36px;
+	border: 0.5px solid #e5e8ee;
+	border-radius: 4px;
+	padding: 10px 14px;
+	font-size: 14px;
+	color: 9fa9ba;
+	line-height: 36px;
+}
+.main-search img{
+	position: absolute;
+	right: 24px;
+	top: 10px;
+}
+.main-chart{
+	position: relative;
+}
+.main-chart .active img[alt = "active"]{
+	position: absolute;
+	top: 0;
+}
+.chart-head{
+	position: relative;
+	margin: 15px 0;
+}
+span.time{
+	position: absolute;
+	right: 0;
+}
+.chart-head-dt{
+	position: absolute;
+	left: 68px;
+	top: 0;
+}
+.chart-head-dt p span{
+	line-height: 24px;
+}
+.active .chart-dt{
+	position: relative;
+}
+.active .chart-dt p{
+	width: 300px;
+}
+.active .chart-dt img{
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+.chart-dt{
+	margin-bottom: 20px;
+}
+.chat-main-rt{
+	position: relative;
+	width: 100%;
+}
+.chat-rt-head{
+	height: 68px;
+	padding: 18px 28px;
+}
+.rt-head-name h3{
+	font-size: 18px;
+	line-height: 32px;
+}
+.rt-head-name img{
+	position: absolute;
+	left: 146px;
+	top: 30px;
+}
+.rt-head-icon{
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 68px;
+	width: 304px;
+}
+.rt-icon-lt{
+	display: flex;
+	position: absolute;
+	right: 175px;
+	top: 18px;
+}
+.rt-icon-lt button{
+	width: 36px;
+	height: 30px;
+	border: 1px solid #ced0da;
+	padding: 7px 10px;
+	background-color: #f2f4f7;
+}
+.rt-icon-lt button:first-child{
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-right-style: none;
+}
+.rt-icon-lt button:last-child{
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-left-style: none;
+}
+.rt-icon-rt{
+	display: flex;
+	position: absolute;
+	right: 0;
+	top: 18px;
+	border-left: 1px solid #ced0da;
+}
+.rt-icon-rt p{
+	font-size: 14px;
+	line-height: 27px;
+	margin-right: 18px;
+	margin-left: 18px;
+}
+.rt-icon-rt button{
+	width: 36px;
+	height: 30px;
+	border: 1px solid #ced0da;
+	padding: 6px 15.5px;
+	background-color: #f2f4f7;
+}
+.rt-icon-rt button:first-child{
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-right-style: none;
+}
+.rt-icon-rt button:last-child{
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.dialog-line{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dialog-line .line {
+    height: 1px;
+    flex-grow: 1;
+    background-color: #ced0da;
+}
+.dialog-line .text{
+	margin: 0 15px;
+}
+.dialog-line-act{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dialog-line-act .line {
+    height: 1px;
+    flex-grow: 1;
+    background-color: #2399f1;
+}
+.dialog-line-act .text{
+	color: #2399f1;
+	margin: 0 15px;
+}
+.dialog{
+	padding: 30px 68px 30px 30px;
+}
+.dialog .log{
+	margin-bottom: 10px;
+	display: flex;
+}
+.dialog .log .log-dt{
+	margin-left: 20px;
+}
+.log .log-dt h4{
+	font-size: 16px;
+	color: #585d68;
+}
+.log .log-dt span{
+	color: #7f8fa4;
+	font-size: 14px;
+	line-height: 36px;
+}
+.log .log-dt img{
+	margin-right: 20px;
+	margin-top: 25px;
+}
+.send-box{
+	padding: 20px 30px;
+	position: relative;
+}
+.send-box input{
+	height: 54px;
+	width: 100%;
+	border-radius: 6px;
+	border: 1px solid #ced0da;
+	padding-left: 60px;
+}
+.send-box img{
+	position: absolute;
+	left: 30px;
+	top: 20px;
+}
