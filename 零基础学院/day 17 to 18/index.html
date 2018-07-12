@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IFE ECMAScript</title>
+	<style type="text/css">
+		.blc{border: 1px solid #000;margin-bottom: 5px;}
+	</style>
+</head>
+<body>
+	<div class="blc">
+		<input id="first-number" type="number" value="0" placeholder="第一个数字">
+        <input id="second-number" type="number" value="0" placeholder="第二个数字">
+        <button id="add-btn">加</button>
+        <button id="minus-btn">减</button>
+        <button id="times-btn">乘</button>
+        <button id="divide-btn">除</button>
+        <p id="result1">运算结果</p>
+	</div>
+	<div class="blc">
+		<input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+		<input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+        <button id="trans-btn">转化为二进制</button>
+        <p id="result2">运算结果</p>
+	</div>
+	<div class="blc">
+		<button id="game3-btn">click then see console</button>
+	</div>
+	<div class="blc">
+		<button id="times99-btn">click to see 99</button>
+		<table id="table9"></table>
+	</div>
+
+	<script type="text/javascript">
+        var add = document.getElementById('add-btn');
+        var minus = document.getElementById('minus-btn');
+        var times = document.getElementById('times-btn');
+        var divide = document.getElementById('divide-btn');
+        var trans = document.getElementById('trans-btn');
+        var game3 = document.getElementById('game3-btn');
+        var times99 = document.getElementById('times99-btn');
+        var result1 = document.getElementById('result1');
+        var result2 = document.getElementById('result2');
+        var result3 = document.getElementById('table9');
+        add.onclick = function(){
+        	var num1 = document.getElementById('first-number').value;
+        	var num2 = document.getElementById('second-number').value;
+        	try{
+        		if(num1=='' || num2=='') throw 'empty input';
+        		else if(isNaN(num1) || isNaN(num2)) throw 'not number type';
+        		else result1.innerHTML = num1*1+num2*1;
+        	}
+        	catch(err){
+        		console.log(err);
+        	}
+        }
+        minus.onclick = function(){
+        	var num1 = document.getElementById('first-number').value;
+        	var num2 = document.getElementById('second-number').value;
+        	try{
+        		if(num1=='' || num2=='') throw 'empty input';
+        		else if(isNaN(num1) || isNaN(num2)) throw 'not number type';
+        		else result1.innerHTML = num1*1-num2*1;
+        	}
+        	catch(err){
+        		console.log(err);
+        	}
+        }
+        times.onclick = function(){
+        	var num1 = document.getElementById('first-number').value;
+        	var num2 = document.getElementById('second-number').value;
+        	try{
+        		if(num1=='' || num2=='') throw 'empty input';
+        		else if(isNaN(num1) || isNaN(num2)) throw 'not number type';
+        		else result1.innerHTML = num1*num2;
+        	}
+        	catch(err){
+        		console.log(err);
+        	}
+        }
+        divide.onclick = function(){
+        	var num1 = document.getElementById('first-number').value;
+        	var num2 = document.getElementById('second-number').value;
+        	try{
+        		if(num1=='' || num2=='') throw 'empty input';
+        		else if(isNaN(num1) || isNaN(num2)) throw 'not number type';
+        		else if(num2 == 0) throw 'cant divide 0 u fool';
+        		else result1.innerHTML = num1/num2;
+        	}
+        	catch(err){
+        		console.log(err);
+        	}
+        }
+        trans.onclick = function(){
+        	var num = document.getElementById('dec-number').value;
+        	var length = document.getElementById('bin-bit').value;
+        	var flag = 0;
+        	var tmp = '';
+        	while(num>0){
+        		flag = num%2;
+        		tmp+=flag;
+        		num = Math.floor(num/2);
+        	}
+        	tmp = tmp.split('');
+        	if(tmp.length < length){
+        		while(tmp.length!=length)
+        			tmp.push('0');
+        	}
+        	if(tmp.length > length) console.log('length shorter!');
+        	tmp = tmp.reverse();
+        	tmp = tmp.join('');
+        	result2.innerHTML = tmp;
+        }
+        game3.onclick = function(){
+        	var x = '';
+        	for (var i = 1; i <101; i++) {
+        		if (i%3 == 0) x += 'PA,';
+        		else if(i == 100) x += i;
+        		else x += i+',';
+        	}
+        	console.log(x);
+        }
+        times99.onclick = function(){
+        	var x='';
+        	var y='<tr><td>';
+        	for(let i=1; i<10; i++){
+        		for(let j=i; j<10; j++){
+        			if(j==9){
+        				if(i==9){
+        					x+=i*j;
+        					y+=i*j+'</td></tr>';
+        					console.log(x);
+        				}else{
+        					x+=i*j;
+        					y+=i*j+'</td></tr><tr><td>';
+        					console.log(x);
+        					x='';
+        				}
+        			}else{
+        				x+=i*j+' ';
+        				y+=i*j+'</td><td>';
+        			}
+        		}
+        	}
+        	result3.innerHTML = y;
+        }
+        window.onload = function(){
+        	var now = new Date();
+        	var h = now.getHours();
+        	if(h>12) alert('nighty');
+        	else if(h<12) alert('good morning');
+        	else alert('noon');
+        }
+	
+	</script>
+</body>
+</html>
