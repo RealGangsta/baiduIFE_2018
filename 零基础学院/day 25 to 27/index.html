@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>day 25 to 27</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.blc{border: 1px solid #000; margin-bottom: 10px;}
+	</style>
+</head>
+<body>
+	<div class="blc" id="nowtime"></div>
+	<div class="blc">
+		<select id="year-select">
+		</select>
+
+		<select id="month-select">
+		</select>
+
+		<select id="day-select">
+		</select>
+
+		<select id="hour-select">
+		</select>
+
+		<select id="minute-select">
+		</select>
+
+		<select id="second-select">
+		</select>
+
+		<p id="result-wrapper">现在距离 <span id="select-time">2001年1月1日星期X HH:MM:SS</span> <span id="gap-time">还有 X 天 X 小时 X 分 X 秒</span></p>
+	</div>
+
+
+	<script type="text/javascript">
+		//task 1
+		function Go() {
+		    console.log("Go");
+		}
+
+		function GoSteps(n) {
+		    if(n && n!=null && n!=NaN && !(isNaN(n))){
+		    	if(n === true) Go();
+		    	else if(n>0){
+		    		var loop = Math.floor(n);
+		    		while(loop--) Go();
+		    	}
+		    }
+		    else Go();
+		}
+
+		GoSteps(10); // Go 10次
+		GoSteps(1); // Go 1次
+		GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
+		GoSteps(0);  // 0次
+		GoSteps(-1);  // 0次
+		GoSteps(1.4);  // Go 1次
+		GoSteps(1.6);  // Go 1次
+		GoSteps(-1);  // 0次
+		GoSteps(true);  // Go 1次
+		GoSteps(false);  // 0次
+		GoSteps("Test");  // 0次
+		GoSteps(NaN);  // 0次
+		GoSteps(null);  // 0次
+
+		//task 2
+		var timeblc = document.getElementById('nowtime');
+		var weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+		function addZero(t){
+			if(t<10) return '0'+t;
+			return t;
+		}
+		function showTime(){
+			var time = new Date();
+			var t = time.getFullYear()+'年'+getMonthDay(time)+getWeekday(time)+getHMS(time);
+			timeblc.innerHTML = t;
+			setTimeout('showTime()',1000);
+		}
+		function getMonthDay(time){
+			var m = addZero(time.getMonth()+1);
+			var d = addZero(time.getDate());
+			var str = m+'月'+d+'日';
+			return str;
+		}
+		function getWeekday(time){
+			var str = weekdays[time.getDay()];
+			return str;
+		}
+		function getHMS(time){
+			var h = addZero(time.getHours());
+			var m = addZero(time.getMinutes());
+			var s = addZero(time.getSeconds());
+			var str = h+':'+m+':'+s;
+			return str;
+		}
+		showTime();
+		
+		//task 3
+		var result = document.getElementById('result-wrapper');
+		var yearselect = document.getElementById('year-select');
+		var monthselect = document.getElementById('month-select');
+		var dayselect = document.getElementById('day-select');
+		var hourselect = document.getElementById('hour-select');
+		var minuteselect = document.getElementById('minute-select');
+		var secondselect = document.getElementById('second-select');
+        setOptionDate('year-select');
+		setOptionDate('month-select');
+		setOptionDate('day-select');
+		setOptionDate('hour-select');
+		setOptionDate('minute-select');
+		setOptionDate('second-select');
+		function setOptionDays(){
+			var day;
+			var y_select = document.getElementById('year-select').selectedIndex;
+			var year = parseInt(document.querySelectorAll('#year-select > option')[y_select].innerText);
+			var m_select = document.getElementById('month-select').selectedIndex;
+			var month = parseInt(document.querySelectorAll('#month-select > option')[m_select].innerText);
+			if(month == 4 || month == 6 || month == 9 || month == 11) day = 31;
+			else if(month == 2){
+				if((year%4 == 0 && year%100 !=0) || year%400 == 0) day = 30;
+				else day = 29;
+			}else day = 32;
+			return day;
+		}
+		function setOptionDate(id){
+			var day, start, end;
+			document.querySelector('#'+id).innerHTML = '';
+			switch(id){
+				case 'year-select':
+				    start = 2000; end = 2033;
+				    break;
+				case 'month-select':
+				    start = 1; end = 13;
+				    break;
+				case 'day-select':
+				    day = setOptionDays();
+				    start = 1; end = day;
+				    break;
+				case 'hour-select':
+				    start = 0; end = 24;
+				    break;
+				case 'minute-select':
+				    start = 0; end = 60;
+				    break;
+				case 'second-select':
+				    start = 0; end = 60;
+				    break;
+			}
+			for(var i=start; i<end; i++){
+				var o = document.createElement('option');
+				o.value = i; o.innerText = i;
+				document.querySelector('#'+id).appendChild(o);
+			}
+		}
+		function getSelectTime(){
+			var time = new Date();
+		    time.setFullYear(parseInt(yearselect.value));
+			time.setMonth(parseInt(monthselect.value)-1,parseInt(dayselect.value));
+			time.setHours(parseInt(hourselect.value),parseInt(minuteselect.value),parseInt(secondselect.value));
+            return time;
+		}
+		function timeGap(now, selected){
+			var gap = [];
+			var tmp = (now.getTime() - selected.getTime())/1000;
+			if(tmp>0) gap[0] = ' 已经过去';
+			if(tmp<0) gap[0] = '还有';
+			tmp = Math.abs(tmp);
+			gap[1] = Math.floor(tmp/86400);
+			gap[2] = Math.floor(tmp%86400/3600);
+			gap[3] = Math.floor(tmp%86400%3600/60);
+			gap[4] = Math.floor(tmp%86400%3600%60);
+			return gap;
+		}
+		function showResult(){
+			var STime = getSelectTime();
+			var NTime = new Date();
+			var gap = timeGap(NTime,STime);
+			var showSTime = document.querySelector('#select-time');
+			var gapTime = document.querySelector('#gap-time');
+			showSTime.innerText = STime.getFullYear()+'年'+addZero(STime.getMonth()+1)+'月'+addZero(STime.getDate())+'日'+getWeekday(STime)+' '+addZero(STime.getHours())+':'+addZero(STime.getMinutes())+':'+addZero(STime.getSeconds());
+			gapTime.innerText = gap[0]+addZero(parseInt(gap[1]))+'天'+addZero(parseInt(gap[2]))+'小时'+addZero(parseInt(gap[3]))+'分'+addZero(parseInt(gap[4]))+'秒';
+			setTimeout(showResult, 1000);
+		}
+		for(let i=0; i<6; i++){
+			var select = document.querySelectorAll('select');
+			select[i].onchange = function(){
+				if(select[i].id == 'year-select' || select[i].id == 'month-select')
+					setOptionDate('day-select');
+			}
+		}
+		showResult();
+	</script>
+</body>
+</html>
