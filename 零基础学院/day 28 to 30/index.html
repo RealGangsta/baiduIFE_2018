@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>send email to lover</title>
+	<style type="text/css">
+		#email-sug-wrapper{
+			border: 1px solid #000;
+			display: none;
+			position: absolute;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#email-sug-wrapper li{
+			font-size: 14px;
+		}
+		#selected{
+			background-color: #dddac3;
+		}
+		#email-sug-wrapper li:hover{
+			background-color: #6d80a0;
+			color: #f2f4f7;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+	    <input id="email-input" type="text">
+	    <ul id="email-sug-wrapper" class="email-sug"></ul>
+	</div>
+
+	<script type="text/javascript">
+		var selectedIndex = 0;
+		var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+		var emailInput = document.querySelector('input#email-input');
+		var emailSugWrapper = document.querySelector('ul#email-sug-wrapper');
+		function inputTrim(str){
+			var s = str.trim();
+			s = s.replace(/\s/ig,'');
+			return s;
+		}
+		function genSuggestArr(str){
+			var input = str;
+			var beforeAt = '';
+			var afterAt = '';
+			var arr = [];
+			if(input.indexOf('@') != -1){
+				beforeAt = htmlEncode(input.substring(0,input.indexOf('@')));
+				afterAt = htmlEncode(input.substring(input.indexOf('@')+1,input.length));
+			}
+			for(var i in postfixList){
+				if(beforeAt){
+					if(afterAt){
+						if(postfixList[i].indexOf(afterAt) == 0)
+							arr.push(beforeAt+'@'+postfixList[i]);
+					}
+					else 
+						arr.push(beforeAt+'@'+postfixList[i]);
+				}
+				else 
+				    arr.push(input+'@'+postfixList[i]);
+			}
+			return arr;
+		}
+		function addToSugWrapper(str, index, hoverli){
+			var arr = genSuggestArr(str);
+			emailSugWrapper.innerHTML = '';
+			for(var i in arr){
+				var li = document.createElement('li');
+				li = setSelected(li, i, index, 'selected');
+				li.innerText = arr[i];
+				emailSugWrapper.appendChild(li);
+			}
+		}
+		function setSelected(li, i, index, attr){
+			if(i == index){
+				li.setAttribute('id',attr);
+			}else if(index == 0 && i == 0){
+				li.setAttribute('id',attr);
+			}
+			return li;
+		}
+		function toggleWrapper(str){
+			if(str) showWrapper(emailSugWrapper);
+			else hideWrapper(emailSugWrapper);
+		}
+		function showWrapper(w){
+			w.style.display = 'block';
+		}
+		function hideWrapper(w){
+			w.style.display = 'none';
+		}
+		//html编码
+		function htmlEncode(html) {
+		    //1.首先动态创建一个容器标签元素，如DIV
+		    var temp = document.createElement("div");
+		    //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+		    (temp.textContent != undefined) ? (temp.textContent = html) : (temp.innerText = html);
+		    //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+		    var output = temp.innerHTML;
+		    temp = null;
+		    return output;
+		}
+		//html解码
+		function htmlDecode(text) {
+		    //1.首先动态创建一个容器标签元素，如DIV
+		    var temp = document.createElement("div");
+		    //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+		    temp.innerHTML = text;
+		    //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+		    var output = temp.innerText || temp.textContent;
+		    temp = null;
+		    return output;
+		}
+		window.onload = function(){
+			emailInput.focus();
+		}
+		emailInput.oninput = function(e){
+			e = e || window.event;
+			var c = e.keyCode;
+			var str = inputTrim(emailInput.value);
+			if(c!=38 && c!=40 && c!=13){
+				emailInput.value = str;
+				selectedIndex = 0;
+				if(str) addToSugWrapper(str, selectedIndex);
+				toggleWrapper(str);
+			}
+		}
+		emailInput.onkeydown = function(e){
+			e = e || window.event;
+			var liQuery = document.getElementsByTagName('li');
+			var str = inputTrim(emailInput.value);
+			if(liQuery.length){
+				if(e.keyCode == 38){
+					if(selectedIndex == 0){
+						selectedIndex = liQuery.length-1;
+					}else{
+						selectedIndex -= 1;
+					}
+					addToSugWrapper(str, selectedIndex);
+				}
+				if(e.keyCode == 40){
+					if(selectedIndex == (liQuery.length-1)){
+						selectedIndex = 0;
+					}else{
+						selectedIndex += 1;
+					}
+					addToSugWrapper(str, selectedIndex);
+				}
+				if(e.keyCode == 13){
+					emailInput.value = htmlDecode(liQuery[selectedIndex].innerHTML);
+					hideWrapper(emailSugWrapper);
+					selectedIndex = 0;
+				}
+				if(e.keyCode == 27){
+					emailInput.select();
+				}
+			}
+		}
+		emailSugWrapper.onclick = function(e){
+			e = e || window.event;
+			var li = e.target || e.srcElement;
+			if(li.nodeName == 'LI'){
+				emailInput.value = htmlDecode(li.innerText);
+				hideWrapper(emailSugWrapper);
+			}
+			emailInput.focus();
+		}
+	</script>
+</body>
+</html>
